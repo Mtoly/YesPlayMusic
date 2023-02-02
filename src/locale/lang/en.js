@@ -102,6 +102,7 @@ export default {
   },
   player: {
     like: 'Like',
+    unlike: 'Unlike',
     previous: 'Previous Song',
     next: 'Next Song',
     repeat: 'Repeat',
@@ -166,6 +167,7 @@ export default {
     subTitleDefault: 'Show Alias for Subtitle by default',
     enableReversedMode: 'Enable Reversed Mode (Experimental)',
     enableCustomTitlebar: 'Enable custom title bar (Need restart)',
+    showLyricsTime: 'Display current time',
     lyricsBackground: {
       text: 'Show Lyrics Background',
       off: 'Off',
@@ -177,6 +179,34 @@ export default {
       ask: 'Ask',
       exit: 'Exit',
       minimizeToTray: 'Minimize to tray',
+    },
+    unm: {
+      enable: 'Enable',
+      audioSource: {
+        title: 'Audio Sources',
+      },
+      enableFlac: {
+        title: 'Enable FLAC Sources',
+        desc: 'To take effect, it may be required to clear the cache after enabling this function.',
+      },
+      searchMode: {
+        title: 'Audio Search Mode',
+        fast: 'Speed Priority',
+        order: 'Order Priority',
+      },
+      cookie: {
+        joox: 'Cookie for Joox use',
+        qq: 'Cookie for QQ use',
+        desc1: 'Click here for the configuration instruction. ',
+        desc2: 'Leave empty to pick up the default value',
+      },
+      ytdl: 'The youtube-dl Executable File for YtDl',
+      proxy: {
+        title: 'Proxy Server for UNM',
+        desc1:
+          'The proxy server to use for requesting services such as YouTube',
+        desc2: 'Leave empty to pick up the default value',
+      },
     },
   },
   contextMenu: {

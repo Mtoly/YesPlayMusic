@@ -103,6 +103,7 @@ export default {
   },
   player: {
     like: '喜欢',
+    unlike: '取消喜欢',
     previous: '上一首',
     next: '下一首',
     repeat: '循环播放',
@@ -173,11 +174,39 @@ export default {
       on: '打开',
       dynamic: '动态（GPU 占用较高）',
     },
+    showLyricsTime: '显示当前时间',
     closeAppOption: {
       text: '关闭主面板时...',
       ask: '询问',
       exit: '退出',
       minimizeToTray: '最小化到托盘',
+    },
+    unm: {
+      enable: '启用',
+      audioSource: {
+        title: '备选音源',
+      },
+      enableFlac: {
+        title: '启用 FLAC',
+        desc: '启用后需要清除歌曲缓存才能生效',
+      },
+      searchMode: {
+        title: '音源搜索模式',
+        fast: '速度优先',
+        order: '顺序优先',
+      },
+      cookie: {
+        joox: 'Joox 引擎的 Cookie',
+        qq: 'QQ 引擎的 Cookie',
+        desc1: '设置说明请参见此处',
+        desc2: '，留空则不进行相关设置',
+      },
+      ytdl: 'YtDl 引擎要使用的 youtube-dl 可执行文件',
+      proxy: {
+        title: '用于 UNM 的代理服务器',
+        desc1: '请求如 YouTube 音源服务时要使用的代理服务器',
+        desc2: '留空则不进行相关设置',
+      },
     },
   },
   contextMenu: {

@@ -27,6 +27,7 @@
         <div class="container" @click.stop>
           <img
             :src="currentTrack.al && currentTrack.al.picUrl | resizeImage(224)"
+            loading="lazy"
             @click="goToAlbum"
           />
           <div class="track-info" :title="audioSource">
@@ -49,7 +50,11 @@
           </div>
           <div class="like-button">
             <button-icon
-              :title="$t('player.like')"
+              :title="
+                player.isCurrentTrackLiked
+                  ? $t('player.unlike')
+                  : $t('player.like')
+              "
               @click.native="likeATrack(player.currentTrack.id)"
             >
               <svg-icon

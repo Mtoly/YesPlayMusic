@@ -99,6 +99,7 @@ export default {
   },
   player: {
     like: '喜歡',
+    unlike: '取消喜歡',
     previous: '上一首',
     next: '下一首',
     repeat: '循環播放',
@@ -164,6 +165,7 @@ export default {
     subTitleDefault: '副標題使用別名',
     enableReversedMode: '啟用倒序播放功能 (實驗性功能)',
     enableCustomTitlebar: '啟用自訂標題列（重新啟動後生效）',
+    showLyricsTime: '顯示目前時間',
     lyricsBackground: {
       text: '顯示歌詞背景',
       off: '關閉',
@@ -175,6 +177,33 @@ export default {
       ask: '詢問',
       exit: '退出',
       minimizeToTray: '最小化到工作列角落',
+    },
+    unm: {
+      enable: '啟用',
+      audioSource: {
+        title: '備選音源',
+      },
+      enableFlac: {
+        title: '啟用 FLAC',
+        desc: '啟用後需要清除歌曲快取才能生效',
+      },
+      searchMode: {
+        title: '音源搜尋模式',
+        fast: '速度優先',
+        order: '順序優先',
+      },
+      cookie: {
+        joox: 'Joox 引擎的 Cookie',
+        qq: 'QQ 引擎的 Cookie',
+        desc1: '設定說明請參見此處',
+        desc2: '，留空則不進行相關設定',
+      },
+      ytdl: 'YtDl 引擎要使用的 youtube-dl 執行檔',
+      proxy: {
+        title: '用於 UNM 的 Proxy 伺服器',
+        desc1: '請求如 YouTube 音源服務時要使用的 Proxy 伺服器',
+        desc2: '留空則不進行相關設定',
+      },
     },
   },
   contextMenu: {
