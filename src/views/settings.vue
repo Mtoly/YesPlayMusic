@@ -56,6 +56,18 @@
           </select>
         </div>
       </div>
+      <div v-if="isElectron" class="item">
+        <div class="left">
+          <div class="title"> {{ $t('settings.trayIcon.text') }} </div>
+        </div>
+        <div class="right">
+          <select v-model="trayIconTheme">
+            <option value="auto">{{ $t('settings.trayIcon.auto') }}</option>
+            <option value="light">{{ $t('settings.trayIcon.light') }}</option>
+            <option value="dark">{{ $t('settings.trayIcon.dark') }}</option>
+          </select>
+        </div>
+      </div>
       <div class="item">
         <div class="left">
           <div class="title">
@@ -641,6 +653,33 @@
           <button @click="sendProxyConfig">更新代理</button>
         </div>
       </div>
+      <div v-if="isElectron">
+        <h3>Real IP</h3>
+        <div class="item">
+          <div class="left">
+            <div class="title"> Real IP </div>
+          </div>
+          <div class="right">
+            <div class="toggle">
+              <input
+                id="enable-real-ip"
+                v-model="enableRealIP"
+                type="checkbox"
+                name="enable-real-ip"
+              />
+              <label for="enable-real-ip"></label>
+            </div>
+          </div>
+        </div>
+        <div id="real-ip" :class="{ disabled: !enableRealIP }">
+          <input
+            v-model="realIP"
+            class="text-input"
+            placeholder="IP地址"
+            :disabled="!enableRealIP"
+          />
+        </div>
+      </div>
 
       <div v-if="isElectron">
         <h3>快捷键</h3>
@@ -878,6 +917,21 @@ export default {
           value,
         });
         changeAppearance(value);
+      },
+    },
+    trayIconTheme: {
+      get() {
+        if (this.settings.trayIconTheme === undefined) return 'auto';
+        return this.settings.trayIconTheme;
+      },
+      set(value) {
+        this.$store.commit('updateSettings', {
+          key: 'trayIconTheme',
+          value,
+        });
+        if (this.isElectron) {
+          ipcRenderer.send('updateTrayIcon', value);
+        }
       },
     },
     musicQuality: {
@@ -1121,6 +1175,28 @@ export default {
         this.$store.commit('updateSettings', {
           key: 'proxyConfig',
           value: config,
+        });
+      },
+    },
+    enableRealIP: {
+      get() {
+        return this.settings.enableRealIP || false;
+      },
+      set(value) {
+        this.$store.commit('updateSettings', {
+          key: 'enableRealIP',
+          value: value,
+        });
+      },
+    },
+    realIP: {
+      get() {
+        return this.settings.realIP || '';
+      },
+      set(value) {
+        this.$store.commit('updateSettings', {
+          key: 'realIP',
+          value: value,
         });
       },
     },
@@ -1566,11 +1642,13 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 
-#proxy-form {
+#proxy-form,
+#real-ip {
   display: flex;
   align-items: center;
 }
-#proxy-form.disabled {
+#proxy-form.disabled,
+#real-ip.disabled {
   opacity: 0.47;
   button:hover {
     transform: unset;

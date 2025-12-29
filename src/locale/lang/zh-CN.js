@@ -170,6 +170,12 @@ export default {
       light: '浅色',
       dark: '深色',
     },
+    trayIcon: {
+      text: '托盘图标颜色',
+      auto: '自动',
+      light: '浅色',
+      dark: '深色',
+    },
     automaticallyCacheSongs: '自动缓存歌曲',
     clearSongsCache: '清除歌曲缓存',
     cacheCount: '已缓存 {song} 首 ({size})',
@@ -243,6 +249,8 @@ export default {
     minePlaylists: '创建的歌单',
     likedPlaylists: '收藏的歌单',
     cardiacMode: '心动模式',
+    copyLyric: '复制歌词',
+    copyLyricWithTranslation: '复制歌词（含翻译）',
   },
   toast: {
     savedToPlaylist: '已添加到歌单',

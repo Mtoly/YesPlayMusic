@@ -30,12 +30,15 @@ let localStorage = {
     showLibraryDefault: false,
     subTitleDefault: false,
     linuxEnableCustomTitlebar: false,
+    trayIconTheme: 'auto',
     enabledPlaylistCategories,
     proxyConfig: {
       protocol: 'noProxy',
       server: '',
       port: null,
     },
+    enableRealIP: false,
+    realIP: null,
     shortcuts: shortcuts,
   },
   data: {
